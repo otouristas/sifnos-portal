@@ -21,7 +21,16 @@ const Layout = ({
   image = "/sifnos-hero.jpg",
   canonical
 }: LayoutProps) => {
-  const currentUrl = canonical || window.location.href;
+  // Use travelsifnos.com for canonical URLs
+  const getCanonicalUrl = () => {
+    if (canonical) return canonical;
+    
+    const path = window.location.pathname;
+    const search = window.location.search;
+    return `https://travelsifnos.com${path}${search}`;
+  };
+  
+  const currentUrl = getCanonicalUrl();
   
   return (
     <>
@@ -61,20 +70,20 @@ const Layout = ({
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebSite",
-            "name": "TravelSifnos.gr",
+            "name": "TravelSifnos.com",
             "description": description,
-            "url": "https://travelsifnos.gr",
+            "url": "https://travelsifnos.com",
             "potentialAction": {
               "@type": "SearchAction",
-              "target": "https://travelsifnos.gr/search?q={search_term_string}",
+              "target": "https://travelsifnos.com/categories?q={search_term_string}",
               "query-input": "required name=search_term_string"
             },
             "publisher": {
               "@type": "Organization",
-              "name": "TravelSifnos.gr",
+              "name": "TravelSifnos.com",
               "logo": {
                 "@type": "ImageObject",
-                "url": "https://travelsifnos.gr/logo.png"
+                "url": "https://travelsifnos.com/touristas-ai-logo.svg"
               }
             }
           })}
