@@ -1,73 +1,75 @@
-# Welcome to your Lovable project
+# TravelSifnos.gr - Complete Sifnos Business Directory
 
-## Project info
+The most comprehensive business directory and travel companion for Sifnos island, featuring AI-powered search and authentic Greek island experiences.
 
-**URL**: https://lovable.dev/projects/f9be8a3a-5eb3-48c2-b723-93d85fbfd2d5
+## 🌟 Features
 
-## How can I edit this code?
+### 🤖 Touristas AI
+- Intelligent travel companion with natural language processing
+- Real-time chat interface with Sifnos-specific knowledge
+- Global floating chatbot on all pages
+- Trained on local businesses, ferries, beaches, and restaurants
 
-There are several ways of editing your application.
+### 🔍 Live Search System
+- Real-time search with Supabase integration
+- Sponsored business prioritization
+- Advanced filtering (category, village, price, rating, season)
+- Auto-suggestions and trending searches
 
-**Use Lovable**
+### 🇬🇷 Greek Business Submission
+- Complete Greek-language business submission form
+- Smart pricing plan recommendations by category
+- All Supabase fields integrated
+- Dynamic tag and feature management
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/f9be8a3a-5eb3-48c2-b723-93d85fbfd2d5) and start prompting.
+### 🏛️ Comprehensive Sifnos Portal
+- Complete arrival information (ferries, airports, booking)
+- Extensive contact directory (medical, transport, culture)
+- Local products and specialties showcase
+- Professional responsive design
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🛠️ Technologies
 
-**Use your preferred IDE**
+- **Frontend**: React 18 + TypeScript + Vite
+- **Styling**: Tailwind CSS + shadcn/ui components
+- **Database**: Supabase (PostgreSQL)
+- **Fonts**: Open Sans, Roboto, Lato
+- **Icons**: Lucide React
+- **State Management**: TanStack Query
+- **Routing**: React Router DOM
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🚀 Getting Started
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+```bash
+# Clone the repository
+git clone https://github.com/otouristas/sifnos-portal.git
 
-Follow these steps:
+# Navigate to project directory
+cd sifnos-portal
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# Install dependencies
+npm install
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## 📱 Key Pages
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+- **Homepage**: Live search with AI-powered recommendations
+- **Business Directory**: Complete business listings with reviews
+- **Touristas AI**: AI travel companion and chat interface
+- **Sifnos Portal**: Complete island information and contacts
+- **Greek Business Submission**: Comprehensive business registration
 
-**Use GitHub Codespaces**
+## 🎯 SEO Optimized
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+- Dynamic meta titles and descriptions
+- Canonical tags implementation
+- Open Graph and Twitter Card optimization
+- Structured data for businesses and locations
+- Mobile-first responsive design
 
-## What technologies are used for this project?
+## 📞 Contact
 
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/f9be8a3a-5eb3-48c2-b723-93d85fbfd2d5) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+For business inquiries and support, visit [TravelSifnos.gr](https://travelsifnos.gr)
