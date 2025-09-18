@@ -18,7 +18,7 @@ const Layout = ({
   title = "TravelSifnos.gr - Complete Business Directory for Sifnos Island",
   description = "Discover the best businesses on Sifnos island. Find accommodation, restaurants, experiences, and local services. The most complete directory for Sifnos, Greece.",
   keywords = "Sifnos, Greece, Cyclades, business directory, hotels, restaurants, travel, tourism, pottery, experiences",
-  image = "/sifnos-hero.jpg",
+  image = "https://travelsifnos.com/sifnos-hero.jpg",
   canonical
 }: LayoutProps) => {
   // Use travelsifnos.com for canonical URLs
@@ -50,14 +50,21 @@ const Layout = ({
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:image" content={image} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Beautiful Sifnos island harbor with traditional white buildings and crystal blue waters" />
         <meta property="og:url" content={currentUrl} />
-        <meta property="og:site_name" content="TravelSifnos.gr" />
+        <meta property="og:site_name" content="TravelSifnos.com" />
+        <meta property="og:locale" content="en_US" />
         
         {/* Twitter Cards */}
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@travelsifnos" />
+        <meta name="twitter:creator" content="@travelsifnos" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={image} />
+        <meta name="twitter:image:alt" content="Beautiful Sifnos island harbor with traditional white buildings and crystal blue waters" />
         
         {/* Additional SEO */}
         <meta name="language" content="en" />
@@ -85,6 +92,13 @@ const Layout = ({
                 "@type": "ImageObject",
                 "url": "https://travelsifnos.com/touristas-ai-logo.svg"
               }
+            },
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://travelsifnos.com/sifnos-hero.jpg",
+              "width": 1200,
+              "height": 630,
+              "alt": "Beautiful Sifnos island harbor with traditional white buildings and crystal blue waters"
             }
           })}
         </script>
