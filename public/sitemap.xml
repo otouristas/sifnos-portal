@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <!-- Homepage -->
   <url>
     <loc>https://travelsifnos.com/</loc>
-    <lastmod>2024-09-18</lastmod>
+    <lastmod>2025-09-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -11,70 +14,70 @@
   <!-- Main Pages -->
   <url>
     <loc>https://travelsifnos.com/categories</loc>
-    <lastmod>2024-09-18</lastmod>
+    <lastmod>2025-09-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
     <loc>https://travelsifnos.com/villages</loc>
-    <lastmod>2024-09-18</lastmod>
+    <lastmod>2025-09-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
     <loc>https://travelsifnos.com/beaches</loc>
-    <lastmod>2024-09-18</lastmod>
+    <lastmod>2025-09-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
     <loc>https://travelsifnos.com/touristas-ai</loc>
-    <lastmod>2024-09-18</lastmod>
+    <lastmod>2025-09-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
     <loc>https://travelsifnos.com/portal</loc>
-    <lastmod>2024-09-18</lastmod>
+    <lastmod>2025-09-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
     <loc>https://travelsifnos.com/submit-business</loc>
-    <lastmod>2024-09-18</lastmod>
+    <lastmod>2025-09-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>https://travelsifnos.com/about</loc>
-    <lastmod>2024-09-18</lastmod>
+    <lastmod>2025-09-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://travelsifnos.com/contact</loc>
-    <lastmod>2024-09-18</lastmod>
+    <lastmod>2025-09-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://travelsifnos.com/blog</loc>
-    <lastmod>2024-09-18</lastmod>
+    <lastmod>2025-09-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>https://travelsifnos.com/pricing</loc>
-    <lastmod>2024-09-18</lastmod>
+    <lastmod>2025-09-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -82,56 +85,56 @@
   <!-- Category Pages -->
   <url>
     <loc>https://travelsifnos.com/categories/accommodation</loc>
-    <lastmod>2024-09-18</lastmod>
+    <lastmod>2025-09-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
     <loc>https://travelsifnos.com/categories/food-drink</loc>
-    <lastmod>2024-09-18</lastmod>
+    <lastmod>2025-09-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
     <loc>https://travelsifnos.com/categories/pottery-crafts</loc>
-    <lastmod>2024-09-18</lastmod>
+    <lastmod>2025-09-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
     <loc>https://travelsifnos.com/categories/experiences</loc>
-    <lastmod>2024-09-18</lastmod>
+    <lastmod>2025-09-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
     <loc>https://travelsifnos.com/categories/vehicle-rentals</loc>
-    <lastmod>2024-09-18</lastmod>
+    <lastmod>2025-09-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
     <loc>https://travelsifnos.com/categories/wellness</loc>
-    <lastmod>2024-09-18</lastmod>
+    <lastmod>2025-09-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
     <loc>https://travelsifnos.com/categories/culture</loc>
-    <lastmod>2024-09-18</lastmod>
+    <lastmod>2025-09-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
     <loc>https://travelsifnos.com/categories/beaches-nature</loc>
-    <lastmod>2024-09-18</lastmod>
+    <lastmod>2025-09-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -139,56 +142,56 @@
   <!-- Village Pages -->
   <url>
     <loc>https://travelsifnos.com/villages/apollonia</loc>
-    <lastmod>2024-09-18</lastmod>
+    <lastmod>2025-09-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
     <loc>https://travelsifnos.com/villages/artemonas</loc>
-    <lastmod>2024-09-18</lastmod>
+    <lastmod>2025-09-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
     <loc>https://travelsifnos.com/villages/kastro</loc>
-    <lastmod>2024-09-18</lastmod>
+    <lastmod>2025-09-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
     <loc>https://travelsifnos.com/villages/platis-gialos</loc>
-    <lastmod>2024-09-18</lastmod>
+    <lastmod>2025-09-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
     <loc>https://travelsifnos.com/villages/kamares</loc>
-    <lastmod>2024-09-18</lastmod>
+    <lastmod>2025-09-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
     <loc>https://travelsifnos.com/villages/vathi</loc>
-    <lastmod>2024-09-18</lastmod>
+    <lastmod>2025-09-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
     <loc>https://travelsifnos.com/villages/faros</loc>
-    <lastmod>2024-09-18</lastmod>
+    <lastmod>2025-09-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
     <loc>https://travelsifnos.com/villages/chrissopigi</loc>
-    <lastmod>2024-09-18</lastmod>
+    <lastmod>2025-09-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -196,56 +199,56 @@
   <!-- Sample Business Pages -->
   <url>
     <loc>https://travelsifnos.com/business/artemon-pottery-workshop</loc>
-    <lastmod>2024-09-18</lastmod>
+    <lastmod>2025-09-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>https://travelsifnos.com/business/omega3-traditional-taverna</loc>
-    <lastmod>2024-09-18</lastmod>
+    <lastmod>2025-09-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>https://travelsifnos.com/business/kastro-traditional-suites</loc>
-    <lastmod>2024-09-18</lastmod>
+    <lastmod>2025-09-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>https://travelsifnos.com/business/sifnos-hiking-adventures</loc>
-    <lastmod>2024-09-18</lastmod>
+    <lastmod>2025-09-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>https://travelsifnos.com/business/kamares-beach-hotel</loc>
-    <lastmod>2024-09-18</lastmod>
+    <lastmod>2025-09-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>https://travelsifnos.com/business/vathi-pottery-studio</loc>
-    <lastmod>2024-09-18</lastmod>
+    <lastmod>2025-09-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>https://travelsifnos.com/business/faros-fish-taverna</loc>
-    <lastmod>2024-09-18</lastmod>
+    <lastmod>2025-09-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>https://travelsifnos.com/business/sifnos-scooter-rental</loc>
-    <lastmod>2024-09-18</lastmod>
+    <lastmod>2025-09-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -253,35 +256,35 @@
   <!-- Sample Beach Pages -->
   <url>
     <loc>https://travelsifnos.com/beaches/platis-gialos</loc>
-    <lastmod>2024-09-18</lastmod>
+    <lastmod>2025-09-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>https://travelsifnos.com/beaches/kamares</loc>
-    <lastmod>2024-09-18</lastmod>
+    <lastmod>2025-09-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>https://travelsifnos.com/beaches/vathi</loc>
-    <lastmod>2024-09-18</lastmod>
+    <lastmod>2025-09-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>https://travelsifnos.com/beaches/faros</loc>
-    <lastmod>2024-09-18</lastmod>
+    <lastmod>2025-09-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>https://travelsifnos.com/beaches/chrissopigi</loc>
-    <lastmod>2024-09-18</lastmod>
+    <lastmod>2025-09-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

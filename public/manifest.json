@@ -1,7 +1,7 @@
 {
-  "name": "TravelSifnos.gr - Discover Authentic Sifnos",
+  "name": "TravelSifnos.com - Sifnos Business Directory & AI Travel Companion",
   "short_name": "TravelSifnos",
-  "description": "Complete business directory for beautiful Sifnos island, Greece",
+  "description": "Complete business directory and AI travel companion for Sifnos island, Greece",
   "start_url": "/",
   "display": "standalone",
   "theme_color": "#1E2E48",
@@ -10,21 +10,15 @@
   "scope": "/",
   "icons": [
     {
+      "src": "/touristas-ai-logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
       "src": "/favicon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
-    },
-    {
-      "src": "/icon-192.png",
-      "type": "image/png",
-      "sizes": "192x192",
-      "purpose": "maskable"
-    },
-    {
-      "src": "/icon-512.png", 
-      "type": "image/png",
-      "sizes": "512x512",
-      "purpose": "maskable"
     }
   ],
   "categories": ["travel", "business", "directory", "tourism"],
@@ -32,15 +26,9 @@
   "dir": "ltr",
   "screenshots": [
     {
-      "src": "/screenshot-wide.png",
-      "sizes": "1280x720",
-      "type": "image/png",
-      "form_factor": "wide"
-    },
-    {
-      "src": "/screenshot-narrow.png", 
-      "sizes": "390x844",
-      "type": "image/png",
+      "src": "/touristas-ai-logo.svg",
+      "sizes": "540x720",
+      "type": "image/svg+xml",
       "form_factor": "narrow"
     }
   ]
