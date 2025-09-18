@@ -14,7 +14,291 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      blog_posts: {
+        Row: {
+          author_id: string | null
+          content: string | null
+          created_at: string
+          excerpt: string | null
+          featured_image_url: string | null
+          id: string
+          meta_description: string | null
+          meta_title: string | null
+          published: boolean | null
+          published_at: string | null
+          slug: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          author_id?: string | null
+          content?: string | null
+          created_at?: string
+          excerpt?: string | null
+          featured_image_url?: string | null
+          id?: string
+          meta_description?: string | null
+          meta_title?: string | null
+          published?: boolean | null
+          published_at?: string | null
+          slug: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          author_id?: string | null
+          content?: string | null
+          created_at?: string
+          excerpt?: string | null
+          featured_image_url?: string | null
+          id?: string
+          meta_description?: string | null
+          meta_title?: string | null
+          published?: boolean | null
+          published_at?: string | null
+          slug?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      businesses: {
+        Row: {
+          address: string | null
+          booking: string | null
+          category_id: string
+          created_at: string
+          description: string | null
+          email: string | null
+          featured: boolean | null
+          features: string[] | null
+          id: string
+          languages: string[] | null
+          maps_url: string | null
+          meta_description: string | null
+          meta_title: string | null
+          name: string
+          owner_id: string | null
+          phone: string | null
+          photo_urls: string[] | null
+          price_range: string | null
+          season: string | null
+          slug: string
+          subscription_plan_id: string | null
+          tags: string[] | null
+          updated_at: string
+          verified: boolean | null
+          village_id: string
+          website: string | null
+        }
+        Insert: {
+          address?: string | null
+          booking?: string | null
+          category_id: string
+          created_at?: string
+          description?: string | null
+          email?: string | null
+          featured?: boolean | null
+          features?: string[] | null
+          id?: string
+          languages?: string[] | null
+          maps_url?: string | null
+          meta_description?: string | null
+          meta_title?: string | null
+          name: string
+          owner_id?: string | null
+          phone?: string | null
+          photo_urls?: string[] | null
+          price_range?: string | null
+          season?: string | null
+          slug: string
+          subscription_plan_id?: string | null
+          tags?: string[] | null
+          updated_at?: string
+          verified?: boolean | null
+          village_id: string
+          website?: string | null
+        }
+        Update: {
+          address?: string | null
+          booking?: string | null
+          category_id?: string
+          created_at?: string
+          description?: string | null
+          email?: string | null
+          featured?: boolean | null
+          features?: string[] | null
+          id?: string
+          languages?: string[] | null
+          maps_url?: string | null
+          meta_description?: string | null
+          meta_title?: string | null
+          name?: string
+          owner_id?: string | null
+          phone?: string | null
+          photo_urls?: string[] | null
+          price_range?: string | null
+          season?: string | null
+          slug?: string
+          subscription_plan_id?: string | null
+          tags?: string[] | null
+          updated_at?: string
+          verified?: boolean | null
+          village_id?: string
+          website?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "businesses_category_id_fkey"
+            columns: ["category_id"]
+            isOneToOne: false
+            referencedRelation: "categories"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "businesses_subscription_plan_id_fkey"
+            columns: ["subscription_plan_id"]
+            isOneToOne: false
+            referencedRelation: "subscription_plans"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "businesses_village_id_fkey"
+            columns: ["village_id"]
+            isOneToOne: false
+            referencedRelation: "villages"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      categories: {
+        Row: {
+          created_at: string
+          description: string | null
+          icon: string | null
+          id: string
+          name: string
+          slug: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          icon?: string | null
+          id?: string
+          name: string
+          slug: string
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          icon?: string | null
+          id?: string
+          name?: string
+          slug?: string
+        }
+        Relationships: []
+      }
+      subscription_plans: {
+        Row: {
+          created_at: string
+          description: string | null
+          features: string[] | null
+          id: string
+          name: string
+          price: number
+          stripe_price_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          features?: string[] | null
+          id?: string
+          name: string
+          price: number
+          stripe_price_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          features?: string[] | null
+          id?: string
+          name?: string
+          price?: number
+          stripe_price_id?: string | null
+        }
+        Relationships: []
+      }
+      user_profiles: {
+        Row: {
+          business_name: string | null
+          created_at: string
+          full_name: string | null
+          id: string
+          phone: string | null
+          subscription_expires_at: string | null
+          subscription_plan_id: string | null
+          subscription_status: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          business_name?: string | null
+          created_at?: string
+          full_name?: string | null
+          id?: string
+          phone?: string | null
+          subscription_expires_at?: string | null
+          subscription_plan_id?: string | null
+          subscription_status?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          business_name?: string | null
+          created_at?: string
+          full_name?: string | null
+          id?: string
+          phone?: string | null
+          subscription_expires_at?: string | null
+          subscription_plan_id?: string | null
+          subscription_status?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "user_profiles_subscription_plan_id_fkey"
+            columns: ["subscription_plan_id"]
+            isOneToOne: false
+            referencedRelation: "subscription_plans"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      villages: {
+        Row: {
+          created_at: string
+          description: string | null
+          id: string
+          name: string
+          slug: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          name: string
+          slug: string
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          name?: string
+          slug?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
