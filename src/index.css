@@ -2,39 +2,65 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* Travelsifnos.gr - Mediterranean Design System
+All colors MUST be HSL for perfect theming.
 */
 
 @layer base {
   :root {
+    /* Base colors - Clean Mediterranean palette */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 210 24% 16%;
 
+    /* Card system */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 210 24% 16%;
 
+    /* Popover system */
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 210 24% 16%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary - Aegean Blue */
+    --primary: 206 82% 52%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 206 82% 65%;
+    --primary-dark: 206 82% 42%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary - Sifnos White with subtle warmth */
+    --secondary: 35 12% 96%;
+    --secondary-foreground: 210 24% 16%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted - Soft grays with Mediterranean warmth */
+    --muted: 25 8% 94%;
+    --muted-foreground: 210 12% 54%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent - Pottery Orange */
+    --accent: 25 95% 64%;
+    --accent-foreground: 0 0% 100%;
+    --accent-light: 25 95% 74%;
 
+    /* System colors */
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 25 8% 88%;
+    --input: 25 8% 92%;
+    --ring: 206 82% 52%;
+
+    /* Mediterranean gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(206 82% 52%), hsl(206 82% 42%));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(25 8% 98%));
+    --gradient-accent: linear-gradient(135deg, hsl(25 95% 64%), hsl(25 95% 74%));
+    
+    /* Shadows with Mediterranean warmth */
+    --shadow-soft: 0 2px 8px hsl(210 24% 16% / 0.04);
+    --shadow-medium: 0 4px 16px hsl(210 24% 16% / 0.08);
+    --shadow-strong: 0 8px 32px hsl(210 24% 16% / 0.12);
+    --shadow-glow: 0 0 24px hsl(206 82% 52% / 0.2);
+
+    /* Animation timing */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-quick: all 0.15s ease-out;
 
     --radius: 0.5rem;
 
