@@ -14,7 +14,7 @@ interface AnalyticsEvent {
   value?: number;
 }
 
-export function useAnalytics(measurementId?: string) {
+export function useAnalytics(measurementId: string = 'G-029BPEJWP9') {
   useEffect(() => {
     if (!measurementId || typeof window === 'undefined') return;
 
@@ -113,6 +113,47 @@ export function useAnalytics(measurementId?: string) {
     });
   };
 
+  const trackTouristasAIInteraction = (action: string, message?: string) => {
+    trackEvent({
+      action: `touristas_ai_${action}`,
+      category: 'ai_interaction',
+      label: message ? message.substring(0, 100) : undefined,
+    });
+  };
+
+  const trackBusinessSubmission = (category: string, subscriptionPlan: string) => {
+    trackEvent({
+      action: 'business_submission',
+      category: 'conversion',
+      label: `${category}_${subscriptionPlan}`,
+    });
+  };
+
+  const trackLiveSearchUsage = (query: string, resultCount: number) => {
+    trackEvent({
+      action: 'live_search',
+      category: 'search_engagement',
+      label: query,
+      value: resultCount,
+    });
+  };
+
+  const trackSponsoredBusinessClick = (businessName: string, category: string) => {
+    trackEvent({
+      action: 'sponsored_business_click',
+      category: 'sponsored_content',
+      label: `${businessName} (${category})`,
+    });
+  };
+
+  const trackPortalSectionView = (section: string) => {
+    trackEvent({
+      action: 'portal_section_view',
+      category: 'content_engagement',
+      label: section,
+    });
+  };
+
   return {
     trackEvent,
     trackPageView,
@@ -121,5 +162,10 @@ export function useAnalytics(measurementId?: string) {
     trackBookingAttempt,
     trackReviewSubmission,
     trackLanguageChange,
+    trackTouristasAIInteraction,
+    trackBusinessSubmission,
+    trackLiveSearchUsage,
+    trackSponsoredBusinessClick,
+    trackPortalSectionView,
   };
 }

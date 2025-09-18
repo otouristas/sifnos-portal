@@ -1,10 +1,12 @@
+import { useEffect } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { I18nProvider } from "@/components/providers/i18n-provider";
+import { useAnalytics } from "@/hooks/use-analytics";
 import Index from "./pages/Index";
 import BusinessDetail from "./pages/BusinessDetail";
 import CategoryDetail from "./pages/CategoryDetail";
@@ -25,6 +27,18 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
+// Analytics wrapper component
+const AnalyticsWrapper = ({ children }: { children: React.ReactNode }) => {
+  const location = useLocation();
+  const { trackPageView } = useAnalytics('G-029BPEJWP9');
+
+  useEffect(() => {
+    trackPageView(location.pathname, document.title);
+  }, [location, trackPageView]);
+
+  return <>{children}</>;
+};
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <HelmetProvider>
@@ -33,6 +47,7 @@ const App = () => (
           <Toaster />
           <Sonner />
           <BrowserRouter>
+            <AnalyticsWrapper>
           <Routes>
             <Route path="/" element={<Index />} />
             
@@ -67,6 +82,7 @@ const App = () => (
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
+            </AnalyticsWrapper>
           </BrowserRouter>
         </TooltipProvider>
       </I18nProvider>
