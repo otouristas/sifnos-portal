@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { useToast } from "@/hooks/use-toast";
+import { staticPagesSEO } from "@/lib/seo-utils";
 import { 
   Sparkles, 
   MessageCircle, 
@@ -47,6 +48,7 @@ interface ChatMessage {
 
 const TouristasAI = () => {
   const { toast } = useToast();
+  const seoData = staticPagesSEO.touristasAI;
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
       id: "welcome",
@@ -295,9 +297,10 @@ const TouristasAI = () => {
 
   return (
     <Layout
-      title="Touristas AI - Your Intelligent Sifnos Travel Companion | TravelSifnos.gr"
-      description="Meet Touristas AI, the world's first AI-powered Greek island travel companion. Get personalized recommendations, ferry schedules, hotel bookings, and local insights for Sifnos."
-      keywords="Touristas AI, Sifnos AI travel, Greek islands AI, travel chatbot, hotel recommendations, ferry schedules, travel planning"
+      title={seoData.title}
+      description={seoData.description}
+      keywords={seoData.keywords}
+      canonical={seoData.canonical}
     >
       <div className="min-h-screen">
         {/* Hero Section */}

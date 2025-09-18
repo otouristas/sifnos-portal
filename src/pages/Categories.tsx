@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import Layout from "@/components/Layout";
+import { staticPagesSEO } from "@/lib/seo-utils";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -29,6 +30,8 @@ const iconMap = {
 };
 
 const Categories = () => {
+  const seoData = staticPagesSEO.categories;
+  
   const { data: categories, isLoading } = useQuery({
     queryKey: ["categories"],
     queryFn: async () => {
@@ -44,9 +47,10 @@ const Categories = () => {
 
   return (
     <Layout
-      title="Business Categories in Sifnos - Find Local Services | TravelSifnos.gr"
-      description="Explore all business categories on Sifnos island. Find accommodation, restaurants, pottery workshops, experiences, rentals, and local services. Complete directory of Sifnos businesses."
-      keywords="Sifnos categories, accommodation, restaurants, pottery workshops, experiences, car rental, culture, museums, wellness, local services"
+      title={seoData.title}
+      description={seoData.description}
+      keywords={seoData.keywords}
+      canonical={seoData.canonical}
     >
       <div className="container py-12">
         {/* Hero Section */}

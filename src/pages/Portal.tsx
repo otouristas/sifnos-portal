@@ -2,6 +2,7 @@ import Layout from "@/components/Layout";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { staticPagesSEO } from "@/lib/seo-utils";
 import { 
   MapPin, 
   Camera, 
@@ -23,6 +24,8 @@ import {
 } from "lucide-react";
 
 const Portal = () => {
+  const seoData = staticPagesSEO.portal;
+  
   const portalSections = [
     {
       title: "Island Information",
@@ -99,9 +102,10 @@ const Portal = () => {
 
   return (
     <Layout
-      title="Sifnos Portal - Complete Island Guide & Local Information | TravelSifnos.gr"
-      description="Your complete guide to Sifnos island. Discover beaches, villages, culture, pottery traditions, local transportation, seasonal information, and insider tips for authentic Greek island experiences."
-      keywords="Sifnos guide, Greek island portal, Cyclades information, Sifnos beaches, pottery workshops, local transportation, island culture"
+      title={seoData.title}
+      description={seoData.description}
+      keywords={seoData.keywords}
+      canonical={seoData.canonical}
     >
       <div className="container py-12">
         {/* Hero Section */}

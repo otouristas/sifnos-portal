@@ -15,6 +15,7 @@ import { useVillages } from "@/hooks/use-villages";
 import { useSubscriptionPlans } from "@/hooks/use-subscription-plans";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+import { staticPagesSEO } from "@/lib/seo-utils";
 import { 
   Upload, 
   X, 
@@ -37,6 +38,7 @@ import {
 
 const SubmitBusiness = () => {
   const { toast } = useToast();
+  const seoData = staticPagesSEO.submitBusiness;
   const { data: categories, isLoading: categoriesLoading } = useCategories();
   const { data: villages, isLoading: villagesLoading } = useVillages();
   const { data: subscriptionPlans, isLoading: plansLoading } = useSubscriptionPlans();
@@ -318,8 +320,10 @@ const SubmitBusiness = () => {
 
   return (
     <Layout
-      title="Καταχώρηση Επιχείρησης - TravelSifnos.gr"
-      description="Καταχωρήστε την επιχείρησή σας στον πιο ολοκληρωμένο οδηγό της Σίφνου. Φτάστε σε περισσότερους πελάτες και αναπτύξτε την επιχείρησή σας."
+      title={seoData.title}
+      description={seoData.description}
+      keywords={seoData.keywords}
+      canonical={seoData.canonical}
     >
       <div className="container py-12">
         {/* Header */}

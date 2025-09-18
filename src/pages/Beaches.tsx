@@ -1,25 +1,21 @@
-import { Helmet } from "react-helmet-async";
 import Layout from "@/components/Layout";
 import { BeachesGrid } from "@/components/beaches/beaches-grid";
 import { BeachFAQ } from "@/components/beaches/beach-faq";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Waves, Award, MapPin, Car, Bus, Users } from "lucide-react";
+import { staticPagesSEO } from "@/lib/seo-utils";
 
 const Beaches = () => {
+  const seoData = staticPagesSEO.beaches;
+  
   return (
-    <Layout>
-      <Helmet>
-        <title>Sifnos Beaches - Crystal Clear Waters & Golden Sands | TravelSifnos.gr</title>
-        <meta 
-          name="description" 
-          content="Discover the most beautiful beaches in Sifnos. From Blue Flag Platis Gialos to secluded Fykiada, explore crystal clear waters, golden sands, and hidden coves of this Cycladic paradise." 
-        />
-        <meta 
-          name="keywords" 
-          content="Sifnos beaches, Blue Flag beach, Platis Gialos, Kamares beach, Vathi beach, Chrysopigi, Greek islands beaches, Cyclades beaches" 
-        />
-      </Helmet>
+    <Layout
+      title={seoData.title}
+      description={seoData.description}
+      keywords={seoData.keywords}
+      canonical={seoData.canonical}
+    >
 
       {/* Hero Section */}
       <section className="relative py-24 bg-gradient-to-br from-primary/10 via-background to-secondary/20">

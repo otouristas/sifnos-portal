@@ -4,13 +4,18 @@ import Categories from "@/components/Categories";
 import VillageSelector from "@/components/VillageSelector";
 import FeaturedBusinesses from "@/components/FeaturedBusinesses";
 import FeaturedBeaches from "@/components/featured-beaches";
+import { staticPagesSEO } from "@/lib/seo-utils";
 
 const Index = () => {
+  const seoData = staticPagesSEO.home;
+  
   return (
     <Layout
-      title="TravelSifnos.gr - Complete Business Directory for Sifnos Island"
-      description="Discover the best businesses on Sifnos island. Find accommodation, restaurants, pottery workshops, experiences, and local services. The most complete directory for authentic Greek island experiences."
-      keywords="Sifnos, Greece, Cyclades, business directory, hotels, restaurants, travel, tourism, pottery, experiences, accommodation, local businesses"
+      title={seoData.title}
+      description={seoData.description}
+      keywords={seoData.keywords}
+      canonical={seoData.canonical}
+      image={seoData.image}
     >
       <Hero />
       <Categories />
