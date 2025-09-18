@@ -367,9 +367,9 @@ const SubmitBusiness = () => {
                   />
                   <p className="text-xs text-muted-foreground mt-1">
                     Το όνομα της επιχείρησής σας όπως θέλετε να εμφανίζεται
-                  </p>
-                </div>
-                
+          </p>
+        </div>
+
                 <div>
                   <Label htmlFor="category">Κατηγορία *</Label>
                   <Select 
@@ -496,7 +496,7 @@ const SubmitBusiness = () => {
                   />
                 </div>
               </div>
-
+              
               <div>
                 <Label htmlFor="website">Ιστοσελίδα</Label>
                 <Input 
@@ -572,7 +572,7 @@ const SubmitBusiness = () => {
                   </Select>
                 </div>
               </div>
-
+              
               <div>
                 <Label>Γλώσσες που Μιλάτε</Label>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-2">
@@ -810,7 +810,7 @@ const SubmitBusiness = () => {
                       <li>• Μπορείτε να αναβαθμίσετε σε premium πακέτο αργότερα</li>
                     </ul>
                   </div>
-                </div>
+        </div>
               </div>
 
               <Button 

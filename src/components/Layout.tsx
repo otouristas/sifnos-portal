@@ -31,6 +31,7 @@ const Layout = ({
         <meta name="keywords" content={keywords} />
         <meta name="robots" content="index, follow" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="google-site-verification" content="YncWAEGC8_F4b7iKVY4A9mtqoV2C6wyIPff5g8bOei4" />
         
         {/* Canonical URL */}
         <link rel="canonical" href={currentUrl} />
