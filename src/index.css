@@ -1,9 +1,13 @@
+/* Google Fonts Import - Open Sans, Roboto, Lato */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* Travelsifnos.gr - Mediterranean Design System
 All colors MUST be HSL for perfect theming.
+Typography: Open Sans, Roboto, Lato ONLY
 */
 
 @layer base {
@@ -20,43 +24,43 @@ All colors MUST be HSL for perfect theming.
     --popover: 0 0% 100%;
     --popover-foreground: 210 24% 16%;
 
-    /* Primary - Aegean Blue */
-    --primary: 206 82% 52%;
+    /* Primary - Sifnos Trust Blue */
+    --primary: 210 41% 20%;
     --primary-foreground: 0 0% 100%;
-    --primary-light: 206 82% 65%;
-    --primary-dark: 206 82% 42%;
+    --primary-light: 210 41% 30%;
+    --primary-dark: 210 41% 15%;
 
-    /* Secondary - Sifnos White with subtle warmth */
-    --secondary: 35 12% 96%;
-    --secondary-foreground: 210 24% 16%;
+    /* Secondary - Sifnos Light Beige */
+    --secondary: 35 33% 83%;
+    --secondary-foreground: 210 41% 20%;
 
-    /* Muted - Soft grays with Mediterranean warmth */
-    --muted: 25 8% 94%;
-    --muted-foreground: 210 12% 54%;
+    /* Muted - Soft beiges with Sifnos warmth */
+    --muted: 35 20% 94%;
+    --muted-foreground: 210 20% 54%;
 
-    /* Accent - Pottery Orange */
-    --accent: 25 95% 64%;
-    --accent-foreground: 0 0% 100%;
-    --accent-light: 25 95% 74%;
+    /* Accent - Warm Sifnos Accent */
+    --accent: 35 33% 73%;
+    --accent-foreground: 210 41% 20%;
+    --accent-light: 35 33% 80%;
 
     /* System colors */
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 25 8% 88%;
-    --input: 25 8% 92%;
-    --ring: 206 82% 52%;
+    --border: 35 20% 88%;
+    --input: 35 20% 92%;
+    --ring: 210 41% 20%;
 
-    /* Mediterranean gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(206 82% 52%), hsl(206 82% 42%));
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(25 8% 98%));
-    --gradient-accent: linear-gradient(135deg, hsl(25 95% 64%), hsl(25 95% 74%));
+    /* Sifnos gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(210 41% 20%), hsl(210 41% 15%));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(35 33% 90%));
+    --gradient-accent: linear-gradient(135deg, hsl(35 33% 83%), hsl(35 33% 88%));
     
     /* Shadows with Mediterranean warmth */
     --shadow-soft: 0 2px 8px hsl(210 24% 16% / 0.04);
     --shadow-medium: 0 4px 16px hsl(210 24% 16% / 0.08);
     --shadow-strong: 0 8px 32px hsl(210 24% 16% / 0.12);
-    --shadow-glow: 0 0 24px hsl(206 82% 52% / 0.2);
+    --shadow-glow: 0 0 24px hsl(210 41% 20% / 0.2);
 
     /* Animation timing */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -82,41 +86,50 @@ All colors MUST be HSL for perfect theming.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Dark mode with Sifnos brand colors */
+    --background: 210 50% 8%;
+    --foreground: 35 33% 90%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 210 45% 10%;
+    --card-foreground: 35 33% 88%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 210 45% 10%;
+    --popover-foreground: 35 33% 88%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 35 33% 83%;
+    --primary-foreground: 210 41% 20%;
+    --primary-light: 35 33% 88%;
+    --primary-dark: 35 33% 75%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 210 35% 15%;
+    --secondary-foreground: 35 33% 83%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 210 30% 12%;
+    --muted-foreground: 35 20% 65%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 210 30% 18%;
+    --accent-foreground: 35 33% 83%;
+    --accent-light: 210 30% 25%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 210 30% 18%;
+    --input: 210 30% 15%;
+    --ring: 35 33% 83%;
+    --sidebar-background: 210 45% 8%;
+    --sidebar-foreground: 35 33% 88%;
+    --sidebar-primary: 35 33% 83%;
+    --sidebar-primary-foreground: 210 41% 20%;
+    --sidebar-accent: 210 30% 15%;
+    --sidebar-accent-foreground: 35 33% 83%;
+    --sidebar-border: 210 30% 18%;
+    --sidebar-ring: 35 33% 83%;
+    
+    /* Dark mode gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(35 33% 83%), hsl(35 33% 75%));
+    --gradient-card: linear-gradient(145deg, hsl(210 45% 10%), hsl(210 35% 12%));
+    --gradient-accent: linear-gradient(135deg, hsl(210 30% 18%), hsl(210 30% 25%));
   }
 }
 
@@ -127,5 +140,147 @@ All colors MUST be HSL for perfect theming.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Open Sans', 'Roboto', 'Lato', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    font-feature-settings: 'kern' 1, 'liga' 1;
+  }
+
+  /* Typography Hierarchy - Using only Open Sans, Roboto, Lato */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto', 'Open Sans', 'Lato', sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+  }
+
+  h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 600;
+  }
+
+  h3 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 600;
+  }
+
+  /* Enhanced button typography */
+  button {
+    font-family: 'Lato', 'Open Sans', 'Roboto', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+  }
+
+  /* Logo typography */
+  .logo-text {
+    font-family: 'Lato', 'Roboto', 'Open Sans', sans-serif;
+    font-weight: 900;
+    letter-spacing: -0.01em;
+  }
+
+  /* Additional typography classes */
+  .font-display {
+    font-family: 'Lato', 'Roboto', 'Open Sans', sans-serif;
+    font-weight: 700;
+  }
+
+  .font-heading {
+    font-family: 'Roboto', 'Open Sans', 'Lato', sans-serif;
+    font-weight: 600;
+  }
+
+  .font-body {
+    font-family: 'Open Sans', 'Roboto', 'Lato', sans-serif;
+    font-weight: 400;
+  }
+
+  .font-medium {
+    font-weight: 500;
+  }
+
+  .font-semibold {
+    font-weight: 600;
+  }
+
+  .font-bold {
+    font-weight: 700;
+  }
+
+  /* Enhanced Micro-interactions */
+  .hover-lift {
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-strong);
+  }
+
+  .hover-scale {
+    transition: transform 0.2s ease-out;
+  }
+
+  .hover-scale:hover {
+    transform: scale(1.02);
+  }
+
+  .hover-glow {
+    transition: box-shadow 0.3s ease-out;
+  }
+
+  .hover-glow:hover {
+    box-shadow: var(--shadow-glow);
+  }
+
+  /* Smooth focus rings */
+  .focus-ring {
+    @apply focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+    transition: box-shadow 0.2s ease-out;
+  }
+
+  /* Animated gradient backgrounds */
+  .gradient-animate {
+    background-size: 200% 200%;
+    animation: gradientShift 6s ease infinite;
+  }
+
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Pulse animation for loading states */
+  .pulse-soft {
+    animation: pulseSoft 2s ease-in-out infinite;
+  }
+
+  @keyframes pulseSoft {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
+  /* Stagger animations */
+  .stagger-fade-in > * {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  .stagger-fade-in > *:nth-child(1) { animation-delay: 0.1s; }
+  .stagger-fade-in > *:nth-child(2) { animation-delay: 0.2s; }
+  .stagger-fade-in > *:nth-child(3) { animation-delay: 0.3s; }
+  .stagger-fade-in > *:nth-child(4) { animation-delay: 0.4s; }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }

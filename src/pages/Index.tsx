@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import Categories from "@/components/Categories"; 
 import VillageSelector from "@/components/VillageSelector";
 import FeaturedBusinesses from "@/components/FeaturedBusinesses";
+import FeaturedBeaches from "@/components/featured-beaches";
 
 const Index = () => {
   return (
@@ -15,6 +16,7 @@ const Index = () => {
       <Categories />
       <VillageSelector />
       <FeaturedBusinesses />
+      <FeaturedBeaches />
     </Layout>
   );
 };

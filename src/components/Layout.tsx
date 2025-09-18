@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 import { Helmet } from "react-helmet-async";
 import Header from "./Header";
 import Footer from "./Footer";
+import TouristasAIBot from "./TouristasAIBot";
 
 interface LayoutProps {
   children: ReactNode;
@@ -85,6 +86,9 @@ const Layout = ({
           {children}
         </main>
         <Footer />
+        
+        {/* Global Touristas AI Chatbot */}
+        <TouristasAIBot />
       </div>
     </>
   );

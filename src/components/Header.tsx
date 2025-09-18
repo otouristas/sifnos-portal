@@ -3,11 +3,18 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, User, LogIn } from "lucide-react";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from "@/components/ui/dropdown-menu";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Logo } from "@/components/ui/logo";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
+import { LanguageToggle } from "@/components/ui/language-toggle";
+import { useAuth } from "@/hooks/use-auth";
+import { Menu, User, LogIn, LogOut, Settings, Building2 } from "lucide-react";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const { user, profile, isBusinessOwner, signOut } = useAuth();
 
   const isActive = (path: string) => location.pathname === path;
 
@@ -15,6 +22,8 @@ const Header = () => {
     { name: "Home", href: "/" },
     { name: "Categories", href: "/categories" },
     { name: "Villages", href: "/villages" },
+    { name: "Beaches", href: "/beaches" },
+    { name: "Touristas AI", href: "/touristas-ai" },
     { name: "Blog", href: "/blog" },
     { name: "Sifnos Portal", href: "/portal" },
     { name: "About", href: "/about" },
@@ -23,13 +32,10 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center justify-between">
-        {/* Logo */}
-        <Link to="/" className="flex items-center space-x-2">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
-            <span className="text-sm font-bold text-primary-foreground">TS</span>
-          </div>
-          <span className="text-xl font-bold text-primary">TravelSifnos.gr</span>
+      <div className="w-full max-w-none px-4 sm:px-6 lg:px-8 flex h-16 items-center justify-between">
+        {/* Enhanced Logo */}
+        <Link to="/" className="flex items-center">
+          <Logo size="md" showText={true} />
         </Link>
 
         {/* Desktop Navigation */}
@@ -52,17 +58,85 @@ const Header = () => {
           </NavigationMenuList>
         </NavigationMenu>
 
-        {/* Desktop Auth */}
+        {/* Desktop Auth & Theme */}
         <div className="hidden items-center space-x-2 lg:flex">
-          <Button variant="ghost" size="sm" asChild>
-            <Link to="/auth">
-              <LogIn className="mr-2 h-4 w-4" />
-              Login
-            </Link>
-          </Button>
-          <Button size="sm" asChild>
-            <Link to="/submit-business">List Your Business</Link>
-          </Button>
+          <LanguageToggle />
+          <ThemeToggle />
+          
+          {user ? (
+            <>
+              {!isBusinessOwner && (
+                <Button size="sm" asChild>
+                  <Link to="/submit-business">List Your Business</Link>
+                </Button>
+              )}
+              
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" className="relative h-8 w-8 rounded-full">
+                    <Avatar className="h-8 w-8">
+                      <AvatarFallback>
+                        {profile?.full_name?.charAt(0) || user.email?.charAt(0) || "U"}
+                      </AvatarFallback>
+                    </Avatar>
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="w-56" align="end" forceMount>
+                  <div className="flex flex-col space-y-1 p-2">
+                    <p className="text-sm font-medium leading-none">
+                      {profile?.full_name || "User"}
+                    </p>
+                    <p className="text-xs leading-none text-muted-foreground">
+                      {user.email}
+                    </p>
+                    {isBusinessOwner && (
+                      <p className="text-xs leading-none text-primary">
+                        Business Owner
+                      </p>
+                    )}
+                  </div>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem asChild>
+                    <Link to="/profile">
+                      <User className="mr-2 h-4 w-4" />
+                      Profile
+                    </Link>
+                  </DropdownMenuItem>
+                  {isBusinessOwner && (
+                    <DropdownMenuItem asChild>
+                      <Link to="/dashboard">
+                        <Building2 className="mr-2 h-4 w-4" />
+                        Business Dashboard
+                      </Link>
+                    </DropdownMenuItem>
+                  )}
+                  <DropdownMenuItem asChild>
+                    <Link to="/settings">
+                      <Settings className="mr-2 h-4 w-4" />
+                      Settings
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem onClick={() => signOut()}>
+                    <LogOut className="mr-2 h-4 w-4" />
+                    Sign Out
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </>
+          ) : (
+            <>
+              <Button variant="ghost" size="sm" asChild>
+                <Link to="/auth">
+                  <LogIn className="mr-2 h-4 w-4" />
+                  Login
+                </Link>
+              </Button>
+              <Button size="sm" asChild>
+                <Link to="/submit-business">List Your Business</Link>
+              </Button>
+            </>
+          )}
         </div>
 
         {/* Mobile Menu */}

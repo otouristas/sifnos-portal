@@ -9,84 +9,58 @@ import {
   Waves 
 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { CategoryCardSkeleton } from "@/components/ui/skeleton-loader";
+import { useCategories } from "@/hooks/use-categories";
+import { useBusinesses } from "@/hooks/use-businesses";
 
-interface Category {
-  id: string;
-  name: string;
-  description: string;
-  icon: React.ReactNode;
-  count: number;
-  color: string;
-}
+const iconMap: Record<string, React.ReactNode> = {
+  'bed': <Bed className="h-8 w-8" />,
+  'utensils-crossed': <UtensilsCrossed className="h-8 w-8" />,
+  'palette': <Palette className="h-8 w-8" />,
+  'camera': <Camera className="h-8 w-8" />,
+  'car': <Car className="h-8 w-8" />,
+  'heart': <Heart className="h-8 w-8" />,
+  'building-2': <Building2 className="h-8 w-8" />,
+  'waves': <Waves className="h-8 w-8" />
+};
 
-const categories: Category[] = [
-  {
-    id: "accommodation",
-    name: "Accommodation",
-    description: "Hotels, villas, rooms & guesthouses",
-    icon: <Bed className="h-8 w-8" />,
-    count: 45,
-    color: "text-primary"
-  },
-  {
-    id: "food-drink",
-    name: "Food & Drink",
-    description: "Restaurants, taverns, cafés & bakeries",
-    icon: <UtensilsCrossed className="h-8 w-8" />,
-    count: 68,
-    color: "text-accent"
-  },
-  {
-    id: "pottery-crafts", 
-    name: "Pottery & Crafts",
-    description: "Studios, workshops & traditional crafts",
-    icon: <Palette className="h-8 w-8" />,
-    count: 22,
-    color: "text-primary-light"
-  },
-  {
-    id: "experiences",
-    name: "Experiences",
-    description: "Tours, activities & local experiences",
-    icon: <Camera className="h-8 w-8" />,
-    count: 31,
-    color: "text-accent-light"
-  },
-  {
-    id: "rentals",
-    name: "Vehicle Rentals",
-    description: "Cars, scooters, ATVs & boat rentals",
-    icon: <Car className="h-8 w-8" />,
-    count: 18,
-    color: "text-primary"
-  },
-  {
-    id: "wellness",
-    name: "Wellness",
-    description: "Yoga, spas, retreats & wellness",
-    icon: <Heart className="h-8 w-8" />,
-    count: 12,
-    color: "text-accent"
-  },
-  {
-    id: "culture",
-    name: "Culture",
-    description: "Museums, history & cultural sites",
-    icon: <Building2 className="h-8 w-8" />,
-    count: 15,
-    color: "text-primary-light"
-  },
-  {
-    id: "beaches",
-    name: "Beaches & Nature",
-    description: "Beaches, hiking trails & natural sites",
-    icon: <Waves className="h-8 w-8" />,
-    count: 28,
-    color: "text-accent-light"
-  }
+const colorClasses = [
+  "text-primary",
+  "text-accent", 
+  "text-primary-light",
+  "text-accent-light"
 ];
 
 const Categories = () => {
+  const { data: categories, isLoading } = useCategories();
+  const { data: allBusinesses } = useBusinesses();
+
+  if (isLoading) {
+    return (
+      <section className="py-20 bg-gradient-to-b from-background to-secondary/30">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+              Explore Sifnos
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Discover authentic local businesses across all categories that make Sifnos special
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {Array.from({ length: 8 }).map((_, i) => (
+              <CategoryCardSkeleton key={i} />
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  const getCategoryBusinessCount = (categoryId: string) => {
+    return allBusinesses?.filter(business => business.category_id === categoryId).length || 0;
+  };
+
   return (
     <section className="py-20 bg-gradient-to-b from-background to-secondary/30">
       <div className="container mx-auto px-4">
@@ -99,15 +73,16 @@ const Categories = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {categories.map((category) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 stagger-fade-in">
+          {categories?.map((category, index) => (
             <Card 
               key={category.id}
-              className="group hover:shadow-strong transition-smooth cursor-pointer bg-gradient-card border-border/50 hover:border-primary/20"
+              className="group hover-lift hover-glow cursor-pointer bg-gradient-card border-border/50 hover:border-primary/20 focus-ring"
+              onClick={() => window.location.href = `/categories/${category.slug}`}
             >
               <CardHeader className="text-center pb-4">
-                <div className={`mx-auto mb-4 p-4 rounded-full bg-secondary group-hover:bg-primary/10 transition-smooth ${category.color}`}>
-                  {category.icon}
+                <div className={`mx-auto mb-4 p-4 rounded-full bg-secondary group-hover:bg-primary/10 transition-all duration-300 group-hover:scale-110 ${colorClasses[index % colorClasses.length]}`}>
+                  {iconMap[category.icon || 'building-2'] || <Building2 className="h-8 w-8" />}
                 </div>
                 <CardTitle className="text-lg font-semibold group-hover:text-primary transition-smooth">
                   {category.name}
@@ -118,7 +93,7 @@ const Categories = () => {
                   {category.description}
                 </p>
                 <div className="text-2xl font-bold text-primary">
-                  {category.count}
+                  {getCategoryBusinessCount(category.id)}
                 </div>
                 <div className="text-xs text-muted-foreground uppercase tracking-wide">
                   businesses

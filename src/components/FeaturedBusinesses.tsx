@@ -2,72 +2,34 @@ import { Star, MapPin, Phone, Globe, Clock } from "lucide-react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-
-interface Business {
-  id: string;
-  name: string;
-  category: string;
-  village: string;
-  description: string;
-  rating: number;
-  priceRange: string;
-  tags: string[];
-  phone?: string;
-  website?: string;
-  season?: string;
-  image: string;
-  verified: boolean;
-}
-
-// Mock data for demonstration
-const featuredBusinesses: Business[] = [
-  {
-    id: "artemon-pottery",
-    name: "Artemon Pottery Workshop",
-    category: "Pottery & Crafts",
-    village: "Artemonas", 
-    description: "Traditional pottery workshop creating authentic Sifnian ceramics using local clay and time-honored techniques.",
-    rating: 4.9,
-    priceRange: "€€",
-    tags: ["Traditional", "Handmade", "Local Clay"],
-    phone: "+30 22840 31XXX",
-    season: "Apr-Oct",
-    image: "/api/placeholder/400/300",
-    verified: true
-  },
-  {
-    id: "omega3-taverna",
-    name: "Omega3 Traditional Taverna",
-    category: "Food & Drink",
-    village: "Platis Gialos",
-    description: "Seaside taverna serving fresh seafood and traditional Sifnian specialties with stunning sunset views.",
-    rating: 4.7,
-    priceRange: "€€€",
-    tags: ["Seafood", "Sunset Views", "Family-run"],
-    phone: "+30 22840 71XXX",
-    website: "omega3sifnos.com",
-    season: "May-Oct",
-    image: "/api/placeholder/400/300",
-    verified: true
-  },
-  {
-    id: "kastro-suites",
-    name: "Kastro Traditional Suites",
-    category: "Accommodation",
-    village: "Kastro",
-    description: "Luxury suites in restored medieval houses with panoramic sea views and authentic island architecture.",
-    rating: 4.8,
-    priceRange: "€€€€",
-    tags: ["Luxury", "Sea View", "Historic"],
-    phone: "+30 22840 51XXX",
-    website: "kastrosuites.gr",
-    season: "Apr-Nov",
-    image: "/api/placeholder/400/300",
-    verified: true
-  }
-];
+import { BusinessCardSkeleton } from "@/components/ui/skeleton-loader";
+import { useFeaturedBusinesses } from "@/hooks/use-businesses";
 
 const FeaturedBusinesses = () => {
+  const { data: businesses, isLoading } = useFeaturedBusinesses();
+
+  if (isLoading) {
+    return (
+      <section className="py-20 bg-gradient-to-b from-secondary/20 to-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+              Featured Businesses
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Discover verified local businesses that showcase the authentic spirit of Sifnos
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {Array.from({ length: 6 }).map((_, i) => (
+              <BusinessCardSkeleton key={i} />
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="py-20 bg-gradient-to-b from-secondary/20 to-background">
       <div className="container mx-auto px-4">
@@ -81,15 +43,16 @@ const FeaturedBusinesses = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {featuredBusinesses.map((business) => (
+          {businesses?.map((business) => (
             <Card 
               key={business.id}
               className="group hover:shadow-strong transition-smooth cursor-pointer bg-gradient-card border-border/50 hover:border-primary/20 overflow-hidden"
+              onClick={() => window.location.href = `/business/${business.slug}`}
             >
               <CardHeader className="p-0">
                 <div className="relative h-48 bg-muted">
                   <img 
-                    src={business.image} 
+                    src={business.photo_urls?.[0] || "/api/placeholder/400/300"} 
                     alt={business.name}
                     className="w-full h-full object-cover group-hover:scale-105 transition-smooth"
                   />
@@ -100,13 +63,13 @@ const FeaturedBusinesses = () => {
                       </Badge>
                     )}
                     <Badge variant="secondary" className="bg-white/90 text-foreground">
-                      {business.priceRange}
+                      {business.price_range || "€€"}
                     </Badge>
                   </div>
                   <div className="absolute top-4 right-4">
                     <div className="flex items-center gap-1 bg-white/90 px-2 py-1 rounded-full">
                       <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                      <span className="text-sm font-medium">{business.rating}</span>
+                      <span className="text-sm font-medium">4.8</span>
                     </div>
                   </div>
                 </div>
@@ -119,10 +82,10 @@ const FeaturedBusinesses = () => {
                       {business.name}
                     </h3>
                     <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                      <span className="text-primary font-medium">{business.category}</span>
+                      <span className="text-primary font-medium">{business.categories.name}</span>
                       <div className="flex items-center gap-1">
                         <MapPin className="h-4 w-4" />
-                        {business.village}
+                        {business.villages.name}
                       </div>
                     </div>
                   </div>
@@ -132,7 +95,7 @@ const FeaturedBusinesses = () => {
                   </p>
 
                   <div className="flex flex-wrap gap-2">
-                    {business.tags.map((tag) => (
+                    {business.tags?.slice(0, 3).map((tag) => (
                       <Badge key={tag} variant="outline" className="text-xs">
                         {tag}
                       </Badge>
@@ -165,6 +128,10 @@ const FeaturedBusinesses = () => {
                   <Button 
                     className="w-full bg-gradient-hero hover:bg-primary-dark transition-smooth"
                     size="sm"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      window.location.href = `/business/${business.slug}`;
+                    }}
                   >
                     View Details
                   </Button>

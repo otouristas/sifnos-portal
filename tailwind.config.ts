@@ -13,6 +13,12 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        'sans': ['Open Sans', 'Roboto', 'Lato', 'sans-serif'],
+        'body': ['Open Sans', 'Roboto', 'Lato', 'sans-serif'],
+        'heading': ['Roboto', 'Open Sans', 'Lato', 'sans-serif'],
+        'display': ['Lato', 'Roboto', 'Open Sans', 'sans-serif'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

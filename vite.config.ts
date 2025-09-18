@@ -15,4 +15,13 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  optimizeDeps: {
+    include: [
+      "leaflet",
+      "react-leaflet"
+    ],
+    exclude: [
+      "@mapbox/node-pre-gyp"
+    ]
+  },
 }));

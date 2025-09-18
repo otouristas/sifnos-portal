@@ -1,9 +1,30 @@
-import { Search } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { useNavigate } from "react-router-dom";
+import { LiveSearch, SearchFilters } from "@/components/ui/live-search";
+import { useTrendingData } from "@/hooks/use-search";
 import heroImage from "@/assets/sifnos-hero.jpg";
 
 const Hero = () => {
+  const navigate = useNavigate();
+  const { data: trendingData } = useTrendingData();
+  
+  const handleSearch = (filters: SearchFilters) => {
+    // Create search params
+    const searchParams = new URLSearchParams();
+    if (filters.query) searchParams.set('q', filters.query);
+    if (filters.category) searchParams.set('category', filters.category);
+    if (filters.village) searchParams.set('village', filters.village);
+    if (filters.rating > 0) searchParams.set('rating', filters.rating.toString());
+    if (filters.season && filters.season !== 'any') searchParams.set('season', filters.season);
+    if (filters.priceRange[0] > 1 || filters.priceRange[1] < 4) {
+      searchParams.set('priceRange', `${filters.priceRange[0]}-${filters.priceRange[1]}`);
+    }
+    
+    // Navigate to search results page or categories page with filters
+    if (filters.query || filters.category) {
+      navigate(`/categories?${searchParams.toString()}`);
+    }
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
@@ -28,36 +49,30 @@ const Hero = () => {
             </p>
           </div>
 
-          {/* Search Bar */}
-          <div className="max-w-2xl mx-auto">
-            <div className="relative flex items-center bg-white/95 backdrop-blur-sm rounded-full shadow-strong p-2">
-              <Search className="absolute left-6 h-5 w-5 text-muted-foreground" />
-              <Input
-                type="text"
-                placeholder="Search businesses, restaurants, accommodation..."
-                className="flex-1 pl-14 pr-4 py-3 border-0 bg-transparent text-lg focus-visible:ring-0 focus-visible:ring-offset-0"
-              />
-              <Button 
-                size="lg" 
-                className="rounded-full px-8 bg-gradient-hero hover:bg-primary-dark transition-smooth"
-              >
-                Search
-              </Button>
-            </div>
+          {/* Live Search Bar */}
+          <div className="max-w-3xl mx-auto">
+            <LiveSearch 
+              onSearch={handleSearch}
+              placeholder="Search businesses, restaurants, accommodation, experiences..."
+            />
           </div>
 
-          {/* Quick Stats */}
+          {/* Live Stats */}
           <div className="flex flex-wrap justify-center gap-8 text-white/90">
             <div className="text-center">
-              <div className="text-2xl font-bold">200+</div>
-              <div className="text-sm uppercase tracking-wide">Businesses</div>
+              <div className="text-2xl font-bold">{trendingData?.featured?.length || 0}+</div>
+              <div className="text-sm uppercase tracking-wide">Featured Businesses</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold">8</div>
+              <div className="text-2xl font-bold">{trendingData?.villages?.length || 8}</div>
               <div className="text-sm uppercase tracking-wide">Villages</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold">15</div>
+              <div className="text-2xl font-bold">20+</div>
+              <div className="text-sm uppercase tracking-wide">Beautiful Beaches</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl font-bold">{trendingData?.categories?.length || 8}</div>
               <div className="text-sm uppercase tracking-wide">Categories</div>
             </div>
           </div>
